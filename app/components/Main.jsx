@@ -28,7 +28,7 @@ var Main = React.createClass({
     }
     return (
       <div>
-          <h1> TODO LIST</h1>
+          <h1> TODO LIST ! </h1>
           <TodoForm addList={this.handler}/>
           <ul>
             {getList()}
