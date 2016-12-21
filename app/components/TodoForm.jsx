@@ -11,12 +11,18 @@ var TodoForm = React.createClass({
     },
     render: function () {
         return (
-          <form onSubmit={this.addTodo}>
-            <div class="input-group">
-                <input type="text" class="form-control" ref='todo' placeholder="Recipient's username" aria-describedby="basic-addon2"/>
-                <span class="input-group-addon" id="basic-addon2"> ADD TODO </span>
-            </div>
-          </form>
+          <div className='row'>
+          <div className='large-6 large-centered'>
+            <form onSubmit={this.addTodo}>
+                  <div className='small-8 columns'>
+                      <input type="text" ref='todo' placeholder="Recipient's username"/>
+                  </div>
+                  <div className='small-4 columns'>
+                    <span className="button" id="basic-addon2"> ADD TODO </span>
+                  </div>
+            </form>
+          </div>
+          </div>
         )
     }
 })

@@ -2,7 +2,12 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
+var {Route, Router, IndexRoute, hashHistory} = require('react-router');
+
 var Main = require('Main');
+var TodoForm = require('TodoForm');
+var About = require('About');
+
 
 
 // create react component
@@ -20,5 +25,12 @@ console.log(objTwo);
 
 
 ReactDOM.render(
-  <Main />, document.getElementById('app')
+  <Router history={hashHistory}>
+      <Route path='/' component={Main}>
+        <Route path='about' component={About}/>
+        <Route path='create' component={TodoForm}/>
+        
+      </Route>
+  </Router>
+  , document.getElementById('app')
 );

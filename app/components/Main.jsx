@@ -1,5 +1,9 @@
 var React = require('react');
-var TodoForm = require('TodoForm');
+var Nav = require('Nav');
+
+//load bootstrap file
+require('style!css!foundation-sites/dist/css/foundation.min.css')
+$(document).foundation();
 
 
 var Main = React.createClass({
@@ -28,8 +32,9 @@ var Main = React.createClass({
     }
     return (
       <div>
+          <Nav/>
           <h1> TODO LIST ! </h1>
-          <TodoForm addList={this.handler}/>
+          {this.props.children}
           <ul>
             {getList()}
           </ul>
