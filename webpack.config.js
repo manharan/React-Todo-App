@@ -23,7 +23,8 @@ module.exports = {
       Main:'app/components/Main.jsx',
       TodoForm: 'app/components/TodoForm.jsx',
       Nav: 'app/components/Nav.jsx',
-      About:'app/components/About.jsx'
+      About:'app/components/About.jsx',
+      TodoList: 'app/components/TodoList.jsx'
     },
     extensions: ['', '.js', '.jsx']
   },

@@ -1,5 +1,7 @@
 var React = require('react');
 var Nav = require('Nav');
+var TodoList = require('TodoList');
+
 
 //load bootstrap file
 require('style!css!foundation-sites/dist/css/foundation.min.css')
@@ -19,25 +21,14 @@ var Main = React.createClass({
   },
   render: function () {
     var {todoListArr} = this.state;
-
-    function getList () {
-      if(todoListArr.length > 0) {
-        var list;
-        return list =  todoListArr.map(function (todo) {
-          return <li key={todo.toString()}> {todo} </li>
-        } )
-
-      }
-
-    }
     return (
       <div>
           <Nav/>
-          <h1> TODO LIST ! </h1>
-          {this.props.children}
-          <ul>
-            {getList()}
-          </ul>
+          <div className='large-11 large-centered'>
+            <h1> </h1>
+            {this.props.children}
+          </div>
+          <TodoList todoListArr = {todoListArr}></TodoList>
       </div>
     )
   }

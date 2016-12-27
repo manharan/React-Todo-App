@@ -1,5 +1,5 @@
 var React = require('react');
-var {Link} = require('react-router');
+var {Link, IndexLink} = require('react-router');
 
 
 var Nav = React.createClass({
@@ -8,9 +8,9 @@ var Nav = React.createClass({
       <div className='top-bar'>
         <div className='top-bar-left'>
           <ul className='menu'>
-            <li class="menu-text">MY TODO APP</li>
+            <li className="menu-text">MY TODO APP</li>
             <li>
-              <Link to='/'>Todo List </Link>
+              <IndexLink to='/'>Todo List </IndexLink>
             </li>
             <li>
               <Link to='create'>Create Todo </Link>

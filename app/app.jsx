@@ -10,6 +10,7 @@ var About = require('About');
 
 
 
+
 // create react component
 //add props as a attriubte in reactjs
 //pass message dynamcally
@@ -23,13 +24,12 @@ var objTwo = {age: 39, ...objOne}
 console.log(objTwo);
 
 
-
 ReactDOM.render(
   <Router history={hashHistory}>
       <Route path='/' component={Main}>
         <Route path='about' component={About}/>
         <Route path='create' component={TodoForm}/>
-        
+
       </Route>
   </Router>
   , document.getElementById('app')

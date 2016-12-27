@@ -108,8 +108,8 @@
 	    hashHistory = _require.hashHistory;
 
 	var Main = __webpack_require__(239);
-	var TodoForm = __webpack_require__(246);
-	var About = __webpack_require__(247);
+	var TodoForm = __webpack_require__(247);
+	var About = __webpack_require__(248);
 
 	// create react component
 	//add props as a attriubte in reactjs
@@ -26454,9 +26454,10 @@
 
 	var React = __webpack_require__(7);
 	var Nav = __webpack_require__(241);
+	var TodoList = __webpack_require__(242);
 
 	//load bootstrap file
-	__webpack_require__(242);
+	__webpack_require__(243);
 	$(document).foundation();
 
 	var Main = React.createClass({
@@ -26475,36 +26476,21 @@
 	  render: function render() {
 	    var todoListArr = this.state.todoListArr;
 
-
-	    function getList() {
-	      if (todoListArr.length > 0) {
-	        var list;
-	        return list = todoListArr.map(function (todo) {
-	          return React.createElement(
-	            'li',
-	            { key: todo.toString() },
-	            ' ',
-	            todo,
-	            ' '
-	          );
-	        });
-	      }
-	    }
 	    return React.createElement(
 	      'div',
 	      null,
 	      React.createElement(Nav, null),
 	      React.createElement(
-	        'h1',
-	        null,
-	        ' TODO LIST ! '
+	        'div',
+	        { className: 'large-11 large-centered' },
+	        React.createElement(
+	          'h1',
+	          null,
+	          ' '
+	        ),
+	        this.props.children
 	      ),
-	      this.props.children,
-	      React.createElement(
-	        'ul',
-	        null,
-	        getList()
-	      )
+	      React.createElement(TodoList, { todoListArr: todoListArr })
 	    );
 	  }
 	});
@@ -26527,7 +26513,8 @@
 	var React = __webpack_require__(7);
 
 	var _require = __webpack_require__(184),
-	    Link = _require.Link;
+	    Link = _require.Link,
+	    IndexLink = _require.IndexLink;
 
 	var Nav = React.createClass({
 	  displayName: 'Nav',
@@ -26544,14 +26531,14 @@
 	          { className: 'menu' },
 	          React.createElement(
 	            'li',
-	            { 'class': 'menu-text' },
+	            { className: 'menu-text' },
 	            'MY TODO APP'
 	          ),
 	          React.createElement(
 	            'li',
 	            null,
 	            React.createElement(
-	              Link,
+	              IndexLink,
 	              { to: '/' },
 	              'Todo List '
 	            )
@@ -26608,13 +26595,55 @@
 /* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	var React = __webpack_require__(7);
+
+	var TodoList = React.createClass({
+	  displayName: 'TodoList',
+
+
+	  render: function render() {
+
+	    console.log(this.props);
+
+	    function getList() {
+	      if (todoListArr.length > 0) {
+	        var list;
+	        return list = todoListArr.map(function (todo) {
+	          return React.createElement(
+	            'li',
+	            { key: todo.toString() },
+	            ' ',
+	            todo,
+	            ' '
+	          );
+	        });
+	      }
+	    }
+	    var todoListArr = this.props.todoListArr;
+
+	    return React.createElement(
+	      'ul',
+	      null,
+	      getList()
+	    );
+	  }
+	});
+
+	module.exports = TodoList;
+
+/***/ },
+/* 243 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(243);
+	var content = __webpack_require__(244);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(245)(content, {});
+	var update = __webpack_require__(246)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -26631,10 +26660,10 @@
 	}
 
 /***/ },
-/* 243 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(244)();
+	exports = module.exports = __webpack_require__(245)();
 	// imports
 
 
@@ -26645,7 +26674,7 @@
 
 
 /***/ },
-/* 244 */
+/* 245 */
 /***/ function(module, exports) {
 
 	/*
@@ -26701,7 +26730,7 @@
 
 
 /***/ },
-/* 245 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -26953,17 +26982,21 @@
 
 
 /***/ },
-/* 246 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(7);
+	var TodoList = __webpack_require__(242);
 
 	var TodoForm = React.createClass({
 	  displayName: 'TodoForm',
 
-
+	  propTypes: {
+	    value: React.PropTypes.string,
+	    onClick: React.PropTypes.func
+	  },
 	  addTodo: function addTodo(e) {
 	    var todo = this.refs.todo.value;
 	    if (todo.length > 0) {
@@ -27004,7 +27037,7 @@
 	module.exports = TodoForm;
 
 /***/ },
-/* 247 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
