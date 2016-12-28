@@ -1,7 +1,8 @@
 var React = require('react');
 var Nav = require('Nav');
 var TodoList = require('TodoList');
-
+var Edit = require('Edit');
+import {GroceryList} from 'app/components/GroceryList.js';
 
 //load bootstrap file
 require('style!css!foundation-sites/dist/css/foundation.min.css')
@@ -28,7 +29,10 @@ var Main = React.createClass({
             <h1> </h1>
             {this.props.children}
           </div>
-          <TodoList todoListArr = {todoListArr}></TodoList>
+          <Edit></Edit>
+          <GroceryList></GroceryList>
+        <TodoList todoListArr = {todoListArr}></TodoList>
+
       </div>
     )
   }

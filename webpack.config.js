@@ -24,7 +24,9 @@ module.exports = {
       TodoForm: 'app/components/TodoForm.jsx',
       Nav: 'app/components/Nav.jsx',
       About:'app/components/About.jsx',
-      TodoList: 'app/components/TodoList.jsx'
+      TodoList: 'app/components/TodoList.jsx',
+      Edit: 'app/components/Edit.js',
+      GroceryList: 'app/components/GroceryList.js'
     },
     extensions: ['', '.js', '.jsx']
   },
